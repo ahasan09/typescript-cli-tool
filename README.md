@@ -1,56 +1,98 @@
-# TypeScript-Assignment
-### version 0.0.1:
-### Installation
-Install redis-server and keep it up
- * If you are on windows download redis-server from this link [redis-server](https://github.com/dmajkic/redis/downloads), if don't install yet . Then install it on your machine and ensure that redis server is running.
- * If you are not on mac download redis-server from this link [redis-server](https://redis.io/download), if don't install yet . Then install it on your machine and ensure that redis server is running.
+# TypeScript CLI Tool
 
-Here are the steps
- * install dependency using npm ``` npm i```
- * add npm link using ``` npm link```
- * start programm using ``` npm start```
+A command-line interface (CLI) application built with TypeScript. Combines a Redis-backed task manager with several algorithm problem solvers — all accessible from a single interactive CLI.
 
-Here listed all commands
- * Start after first time use ```TypeScript-Assignment```
- * for task problem use ``` task ```
- * for fizbuzz problem use ``` fizzbuzz ```
- * for leapyear problem use ``` leapyear ```
- * for staircase problem use ``` staircase ```
- * for prime problem use ``` prime ```
- * for get all command use ``` help ```
- * for exit use ``` exit ```
+## Features
 
-### Command usage for Task
-Add : ```task add [your task]```; here [your task] is string.
+- **Task Manager** — add, check off, delete, and list tasks (stored in Redis)
+- **FizzBuzz** — classic FizzBuzz up to N
+- **Leap Year** — check if a given year is a leap year
+- **Prime Numbers** — print all primes up to N
+- **Staircase** — print a staircase pattern
 
-Check : ```task check [number]```; here number is task serial number which shown as list.
+## Tech Stack
 
-Delete : ```task del [number]```; here number is task serial number which shown as list.
+- TypeScript
+- Node.js
+- Redis (for task persistence)
 
-Task List : ```task```; If you put only task command it show's all task list.
+## Prerequisites
 
-### Example
- ```javascript
+- [Node.js](https://nodejs.org/) v14+
+- [Redis](https://redis.io/) running locally
+
+### Installing Redis
+
+**macOS:**
+```bash
+brew install redis
+brew services start redis
+```
+
+**Linux:**
+```bash
+sudo apt-get install redis-server
+sudo service redis-server start
+```
+
+**Windows:** Download from [redis.io](https://redis.io/download) and run `redis-server.exe`.
+
+## Getting Started
+
+```bash
+git clone https://github.com/ahasan09/typescript-cli-tool
+cd typescript-cli-tool
+npm install
+npm link       # registers the CLI globally
+npm start      # starts the interactive CLI
+```
+
+Once started, type `TypeScript-Assignment` to enter the CLI, or run commands directly.
+
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `help` | Show all available commands |
+| `task` | List all tasks |
+| `task add "your task"` | Add a new task |
+| `task check <number>` | Mark a task as done |
+| `task del <number>` | Delete a task |
+| `fizzbuzz [n]` | Run FizzBuzz up to n (default: 100) |
+| `leapyear <year>` | Check if a year is a leap year |
+| `prime <n>` | Print all prime numbers up to n |
+| `staircase <n>` | Print a staircase of height n |
+| `exit` | Exit the CLI |
+
+## Examples
+
+```bash
+# Task manager
 task add "Need to solve fizzbuzz problem"
 task check 1
 task del 1
 task
- ```  
 
-### Command usage for problem solve
-Fizzbuzz : ```fizzbuzz [number]```; here number is optional. Default value is 100.
-
-LeapYear : ```leapyear [year]```; here year is required.
-
-Prime Number : ```prime [number]```; here number is required. Print all prime number upto given number.
-
-StairCase : ```staircase [number]```; here number is required. It print start in different way.
-
-### Example
- ```javascript
+# Algorithm solvers
 fizzbuzz
-fizzbuzz 100
-leapyear 2020
+fizzbuzz 50
+leapyear 2024
 prime 20
 staircase 5
- ```  
+```
+
+## Project Structure
+
+```
+src/
+├── main.ts              # CLI entry point and command dispatcher
+├── task.ts              # Task model
+├── db-client.ts         # Redis client
+├── task-jason-write.ts  # Task persistence helpers
+├── fizz-buzz.ts         # FizzBuzz implementation
+├── leap-year.ts         # Leap year checker
+├── prime-number.ts      # Prime number generator
+├── stair-case.ts        # Staircase printer
+├── command-argument.ts  # CLI argument parsing
+└── enum.ts              # Command enumerations
+```

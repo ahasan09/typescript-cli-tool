@@ -1,0 +1,4 @@
+
+> typescript-assignment@1.0.0 build
+> tsc --outDir bin
+

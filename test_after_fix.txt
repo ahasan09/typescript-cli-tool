@@ -1,0 +1,5 @@
+
+> typescript-assignment@1.0.0 test
+> echo 'No test script defined' && exit 0
+
+No test script defined

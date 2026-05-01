@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc --outDir bin && TypeScript-Assignment"
+    "build": "tsc --outDir bin",
+    "start": "tsc --outDir bin && TypeScript-Assignment",
+    "test": "echo 'No test script defined' && exit 0"
   },
   "keywords": [
     "Typescript",

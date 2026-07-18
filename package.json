@@ -17,7 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.10.6",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "bin": {
     "TypeScript-Assignment": "./bin/main.js"
